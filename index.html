@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Vastra — modern Indian occasionwear, thoughtfully chosen." />
+  <title>VASTRA — Indian occasionwear</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="announcement">Complimentary shipping on orders over ₹2,000 <span>✦</span> Easy 7-day returns</div>
+  <header class="site-header">
+    <button class="icon-btn mobile-menu" aria-label="Open menu">☰</button>
+    <a class="brand" href="#home" aria-label="Vastra home"><span>V</span>ASTRA</a>
+    <nav class="main-nav" aria-label="Primary navigation"><a href="#shop">Shop</a><a href="#collections">Collections</a><a href="#about">Our story</a><a href="#journal">Journal</a></nav>
+    <div class="header-actions"><button class="search-trigger" aria-label="Search">⌕ <span>Search</span></button><button class="icon-btn" aria-label="Account">♙</button><button class="icon-btn" id="wishlistBtn" aria-label="Wishlist">♡</button><button class="cart-trigger" id="cartBtn" aria-label="Open cart">Bag <b id="cartCount">0</b></button></div>
+  </header>
+
+  <main id="app">
+    <section class="hero" id="home"><div class="hero-copy"><p class="eyebrow">THE FESTIVE EDIT · 2026</p><h1>Wear the<br><em>moment.</em></h1><p class="hero-note">Heritage silhouettes, reimagined for the way you live now.</p><a class="btn btn-light" href="#shop">Explore the edit <span>→</span></a></div><div class="hero-art"><div class="hero-orb"></div><div class="hero-fabric"></div><div class="hero-label">01 / 04<br><small>NEW SEASON</small></div></div></section>
+
+    <section class="intro section-pad"><p class="eyebrow">A NEW PERSPECTIVE</p><h2>Indian craft,<br><em>quietly iconic.</em></h2><p class="intro-text">Vastra brings together time-honoured textiles and an easy, modern point of view. Pieces made to be worn, loved, and remembered.</p></section>
+
+    <section class="section-pad" id="collections"><div class="section-heading"><div><p class="eyebrow">SHOP BY MOOD</p><h2>Find your <em>favourite.</em></h2></div><a class="text-link" href="#shop">View all <span>↗</span></a></div><div class="collection-grid"><a class="collection-card collection-maroon" href="#shop" data-filter="Sarees"><span>01</span><h3>Sarees</h3><small>Silhouettes with soul →</small></a><a class="collection-card collection-sand" href="#shop" data-filter="Kurtis"><span>02</span><h3>Kurtis</h3><small>Everyday, elevated →</small></a><a class="collection-card collection-olive" href="#shop" data-filter="Dupattas"><span>03</span><h3>Dupattas</h3><small>The finishing touch →</small></a></div></section>
+
+    <section class="section-pad shop" id="shop"><div class="section-heading"><div><p class="eyebrow">THE VASTRA EDIT</p><h2>New, noteworthy.</h2></div><div class="shop-controls"><select id="sortSelect" aria-label="Sort products"><option value="featured">Featured</option><option value="low">Price: Low to high</option><option value="high">Price: High to low</option></select><button class="filter-btn" id="filterBtn">Filter <span>＋</span></button></div></div><div class="filter-row" id="filterRow"><button class="active" data-cat="All">All</button><button data-cat="Sarees">Sarees</button><button data-cat="Dress Materials">Dress materials</button><button data-cat="Kurtis">Kurtis</button><button data-cat="Dupattas">Dupattas</button></div><div class="product-grid" id="productGrid"></div></section>
+
+    <section class="feature-banner"><div class="feature-copy"><p class="eyebrow">THE ART OF LAYERING</p><h2>Small details.<br><em>Big feeling.</em></h2><p>Discover hand-finished dupattas designed to transform the familiar.</p><a class="btn btn-light" href="#shop">Shop dupattas <span>→</span></a></div><div class="feature-pattern"></div></section>
+    <section class="quote section-pad"><p class="eyebrow">THE VASTRA STANDARD</p><blockquote>“The kind of clothes that make<br>an ordinary day feel ceremonial.”</blockquote><div class="quote-line"></div><p class="muted">— THE INDIAN EDIT, 2026</p></section>
+    <section class="newsletter"><div><p class="eyebrow">A LITTLE SOMETHING EXTRA</p><h2>Letters from Vastra.</h2><p>New drops, styling notes, and stories from the people who make it all possible.</p></div><form id="newsletterForm"><label for="email">Your email address</label><div class="email-row"><input id="email" type="email" required placeholder="you@example.com"><button class="btn btn-dark">Sign me up <span>→</span></button></div><small id="newsletterMsg"></small></form></section>
+  </main>
+  <footer id="about"><div class="footer-brand"><a class="brand" href="#home"><span>V</span>ASTRA</a><p>Made with intention.<br>Worn with feeling.</p></div><div><p class="footer-title">Explore</p><a href="#shop">All products</a><a href="#collections">Collections</a><a href="#about">Our story</a></div><div><p class="footer-title">Help</p><a href="#">Shipping & returns</a><a href="#">Contact us</a><a href="#">FAQ</a></div><div><p class="footer-title">Follow along</p><a href="#">Instagram ↗</a><a href="#">Pinterest ↗</a><a href="#">Journal ↗</a></div><div class="footer-bottom">© 2026 VASTRA <span>Crafted in India · Delivered everywhere</span></div></footer>
+
+  <aside class="drawer" id="cartDrawer" aria-label="Shopping bag"><div class="drawer-head"><h2>Your bag <span id="drawerCount">0</span></h2><button class="close-btn" id="closeCart">×</button></div><div class="drawer-body" id="cartItems"></div><div class="drawer-foot"><div class="total-row"><span>Subtotal</span><strong id="cartTotal">₹0</strong></div><p class="muted">Shipping calculated at checkout.</p><button class="btn btn-dark full" id="checkoutBtn">Proceed to checkout <span>→</span></button></div></aside><div class="overlay" id="overlay"></div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body></html>
