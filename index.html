@@ -16,7 +16,7 @@
     <button class="icon-btn mobile-menu" aria-label="Open menu">☰</button>
     <a class="brand" href="#home" aria-label="Vastra home"><span>V</span>ASTRA</a>
     <nav class="main-nav" aria-label="Primary navigation"><a href="#shop">Shop</a><a href="#collections">Collections</a><a href="#about">Our story</a><a href="#journal">Journal</a></nav>
-    <div class="header-actions"><button class="search-trigger" aria-label="Search">⌕ <span>Search</span></button><button class="icon-btn" aria-label="Account">♙</button><button class="icon-btn" id="wishlistBtn" aria-label="Wishlist">♡</button><button class="cart-trigger" id="cartBtn" aria-label="Open cart">Bag <b id="cartCount">0</b></button></div>
+    <div class="header-actions"><div class="header-search-inline"><span>⌕</span><input id="headerSearchInput" aria-label="Search products" placeholder="Search products"><div id="headerSearchResults"></div></div><button class="icon-btn" aria-label="Account">♙</button><button class="icon-btn" id="wishlistBtn" aria-label="Wishlist" onclick="location.href='/wishlist.html'">♡</button><button class="cart-trigger" id="cartBtn" aria-label="Open cart">Bag <b id="cartCount">0</b></button></div>
   </header>
 
   <main id="app">
@@ -36,5 +36,5 @@
 
   <aside class="drawer" id="cartDrawer" aria-label="Shopping bag"><div class="drawer-head"><h2>Your bag <span id="drawerCount">0</span></h2><button class="close-btn" id="closeCart">×</button></div><div class="drawer-body" id="cartItems"></div><div class="drawer-foot"><div class="total-row"><span>Subtotal</span><strong id="cartTotal">₹0</strong></div><p class="muted">Shipping calculated at checkout.</p><button class="btn btn-dark full" id="checkoutBtn">Proceed to checkout <span>→</span></button></div></aside><div class="overlay" id="overlay"></div>
   <div class="toast" id="toast" role="status"></div>
-  <script src="app.js"></script>
+  <script src="app.js"></script><script src="search.js?v=2"></script><script src="search-tags.js?v=1"></script>
 </body></html>

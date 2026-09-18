@@ -22,6 +22,10 @@ The specification's PostgreSQL/Prisma, authentication, Cloudinary and Razorpay s
 
 The new Supabase project is `Vastra` in `ap-south-1`. Its schema and seed data are applied, with RLS enabled on exposed tables. The storefront reads active products from Supabase using the publishable key. Copy `.env.example` to `.env.local` for server-side configuration and keep secret keys out of frontend code.
 
+## Security status
+
+This repository is a preview storefront. It is not production-safe for real payments or unrestricted admin access until Supabase Auth, server-side order creation, Razorpay signature verification, protected admin policies, and rate limiting are enabled. See `SECURITY.md`.
+
 ## Cloudinary development mode
 
 `.env.local` contains temporary placeholder values with `CLOUDINARY_ENABLED=false`. These values are intentionally non-functional. Replace them with real Cloudinary credentials before enabling uploads; never expose `CLOUDINARY_API_SECRET` in browser code.
