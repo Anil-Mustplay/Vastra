@@ -54,3 +54,24 @@ button.disabled,.quick-add.disabled{cursor:not-allowed;opacity:.55}.stock-label{
 /* Search results and tag suggestions */
 .search-page{padding:65px 7.5%;min-height:70vh}.search-page h1{font:500 52px 'Cormorant Garamond';color:var(--wine);margin:14px 0 30px}.search-tags{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px}.search-tags a{border:1px solid var(--line);padding:10px 16px;color:var(--maroon);text-decoration:none;border-radius:22px}.search-tags a:hover{background:var(--maroon);color:#fff}.search-empty{color:var(--muted);font-size:16px}.search-page .product-grid{grid-template-columns:repeat(4,1fr)}
 .search-tag-suggestion{display:grid!important;grid-template-columns:auto 1fr auto!important;align-items:center;gap:10px}.search-tag-suggestion b{font-size:9px;color:var(--gold)}.search-tag-suggestion i{font-style:normal;color:var(--maroon)}
+/* UI polish: predictable focus, clearer product affordances, and touch-friendly controls. */
+:where(a,button,input,select):focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.product-card{transition:transform .22s ease}
+.product-card:hover{transform:translateY(-4px)}
+.product-card .product-image{box-shadow:0 1px 0 rgba(75,18,32,.06);transition:box-shadow .22s ease}
+.product-card:hover .product-image{box-shadow:0 12px 24px rgba(75,18,32,.12)}
+.product-card .heart{transition:transform .18s ease,background .18s ease,color .18s ease}
+.product-card .heart:hover{transform:scale(1.08)}
+.header-search-inline input{min-width:0}
+#headerSearchResults a:last-child{border-bottom:0}
+.search-tag-suggestion:hover{background:#fff8ef!important}
+.btn,.filter-btn,.shop-controls select{transition:background .18s ease,color .18s ease,transform .18s ease}
+.btn:hover{transform:translateY(-1px)}
+@media(max-width:800px){
+  .header-actions{gap:10px}
+  .header-search-inline{width:112px}
+  .product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 12px}
+  .product-image{height:260px}
+  .product-meta{align-items:flex-start;flex-direction:column;gap:5px}
+  .product-price{font-size:13px}
+}
