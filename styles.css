@@ -90,3 +90,9 @@ button.disabled,.quick-add.disabled{cursor:not-allowed;opacity:.55}.stock-label{
 /* Product page offset for fixed announcement + navigation header */
 .product-page{padding-top:146px!important}
 @media(max-width:760px){.product-page{padding-top:98px!important}}
+/* Final header flow fix: sticky header must not cover page content */
+.announcement{position:sticky;top:0;z-index:12}
+.site-header{position:sticky;top:34px;z-index:11}
+#app{padding-top:0}
+.product-page{padding-top:70px!important}
+@media(max-width:800px){.announcement{height:32px}.site-header{top:32px}.product-page{padding-top:30px!important}}
