@@ -18,7 +18,6 @@ const skuCategoryCode=value=>{const v=String(value||'').toLowerCase();if(v.inclu
 const nextAutomaticSku=category=>`VAS-${skuCategoryCode(category)}-${Date.now().toString().slice(-6)}`;
 form=function(p){legacyProductForm(p);const f=document.querySelector('#productForm');if(!f)return;const sku=f.elements.sku,category=f.elements.category;if(p){sku.readOnly=true;return}sku.readOnly=true;sku.required=true;sku.placeholder='Auto-generated SKU';const update=()=>{sku.value=nextAutomaticSku(category.value)};category.addEventListener('input',update);category.addEventListener('change',update);update()};
 if(location.hash==='#products')products();
-const _authCdnFix=document.createElement('script');_authCdnFix.src='/auth-client.js';_authCdnFix.onload=()=>{if(window.supabase&&!window.client){location.reload()}};document.head.appendChild(_authCdnFix);
 </script>
 <script src="/auth-client.js"></script>
 <script>
