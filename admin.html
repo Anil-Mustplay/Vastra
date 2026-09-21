@@ -12,3 +12,10 @@ function route(v){document.querySelectorAll('.admin-nav').forEach(x=>x.classList
 </script><script>
 document.addEventListener('click',e=>{const b=e.target.closest('.image-remove');if(b)b.textContent='×'});
 </script>
+</script><script>
+const legacyProductForm=form;
+const skuCategoryCode=value=>{const v=String(value||'').toLowerCase();if(v.includes('saree'))return 'SAR';if(v.includes('kurta'))return 'KUR';if(v.includes('blouse'))return 'BLO';if(v.includes('dress'))return 'DRE';if(v.includes('dupatta'))return 'DUP';if(v.includes('material'))return 'MAT';return 'PRD'};
+const nextAutomaticSku=async category=>{const code=skuCategoryCode(category);try{const rows=await get('products?select=sku');const used=rows.map(x=>String(x.sku||''));let n=1;while(used.includes(`VAS-${code}-${String(n).padStart(4,'0')}`))n++;return `VAS-${code}-${String(n).padStart(4,'0')}`}catch(e){return `VAS-${code}-${Date.now().toString().slice(-4)}`}};
+form=function(p){legacyProductForm(p);const f=document.querySelector('#productForm');if(!f)return;const sku=f.elements.sku,category=f.elements.category;if(p){sku.readOnly=true;return}sku.readOnly=true;sku.required=true;sku.placeholder='Auto-generated SKU';const update=async()=>{sku.value=await nextAutomaticSku(category.value)};category.addEventListener('input',update);category.addEventListener('change',update);update()};
+if(location.hash==='#products')products();
+</script>
