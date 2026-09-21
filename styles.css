@@ -75,3 +75,4 @@ button.disabled,.quick-add.disabled{cursor:not-allowed;opacity:.55}.stock-label{
   .product-meta{align-items:flex-start;flex-direction:column;gap:5px}
   .product-price{font-size:13px}
 }
+.image-slot-grid{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 14px}.image-slot{width:150px}.image-square{height:170px;border:1px dashed #b98d46;background:#faf7f0;display:flex;align-items:center;justify-content:center;position:relative;cursor:pointer;overflow:hidden}.image-square span{font-size:34px;color:#7c1f32}.image-square input{position:absolute;inset:0;opacity:0;cursor:pointer}.image-square img{display:none;width:100%;height:100%;object-fit:cover}.image-slot.has-image .image-square img{display:block}.image-slot.has-image .image-square span{display:none}.image-remove{margin-top:6px;border:0;background:transparent;color:#7c1f32;text-decoration:underline;cursor:pointer}.image-state{display:block;color:#777;margin-top:4px}.image-add{margin-bottom:12px}
