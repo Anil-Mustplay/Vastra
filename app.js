@@ -74,3 +74,16 @@ fetch('/api/products',{cache:'no-store'}).then(r=>r.ok?r.json():[]).then(rows=>{
 
 /* Final storefront image source: always read Supabase directly; never depend on missing /api/products. */
 (async()=>{try{const K='sb_publishable_NaR11hPva6us_0wX2fNamA_PWJ_YFR8',rows=await fetch('https://trnzlkcdjjltphkknrqv.supabase.co/rest/v1/products?select=*&status=eq.active&order=created_at.desc',{headers:{apikey:K,Authorization:'Bearer '+K}}).then(r=>r.json());if(!Array.isArray(rows)||!rows.length)return;products=rows.map((p,i)=>({id:p.sku||p.id,sku:p.sku,name:p.name,category:p.category||'Vastra edit',price:Number(p.price),mrp:Number(p.mrp||p.price),stock:Number(p.stock||0),image_url:p.image_url,image_urls:p.image_urls,colors:[['#8c3038','#d4a461'],['#b76b57','#eed2a7'],['#b4aa94','#6f7764'],['#6d1e2e','#d4b27c']][i%4],tag:i<2?'New':''}));const old=renderProducts;renderProducts=()=>{old();document.querySelectorAll('.product-card').forEach(c=>{const p=products.find(x=>String(x.id)===String(c.querySelector('[data-add]')?.dataset.add));let a=[];try{a=Array.isArray(p?.image_urls)?p.image_urls:JSON.parse(p?.image_urls||'[]')}catch(e){}if(!a.length&&p?.image_url)a=[p.image_url];const art=c.querySelector('.product-art');if(art&&a.length){const im=document.createElement('img');im.src=a[0];im.alt=p.name;im.style='width:100%;height:100%;object-fit:cover;display:block';art.replaceWith(im)}})};renderProducts()}catch(e){console.warn('live catalog',e)}})();
+/* Final storefront search: live suggestions + keyword/category product filtering. */
+(()=>{
+  let searchQuery='';
+  const normalize=v=>String(v||'').toLowerCase().replace(/[^a-z0-9]+/g,'').replace(/sarees?$/,'saree').replace(/kurtis?$/,'kurti').replace(/dupatta?s?$/,'dupatta').replace(/dressmaterials?$/,'dressmaterial');
+  const fields=p=>normalize([p.name,p.category,p.sku,p.id].join(' '));
+  const matches=q=>products.filter(p=>fields(p).includes(normalize(q)));
+  const baseRender=renderProducts;
+  renderProducts=function(){
+    if(!searchQuery)return baseRender();
+    const list=matches(searchQuery).slice(),sort=document.querySelector('#sortSelect')?.value;
+    if(sort==='low')list.sort((a,b)=>a.price-b.price); if(sort==='high')list.sort((a,b)=>b.price-a.price);
+    const grid=document.querySelector('#productGrid'); if(!grid)return;
+    grid.innerHTML=list.length?list.map(p=>'<article class="product-card"><div class="product-image"><div class="product-art" style="--p:'+(p.colors?.[0]||'#8c3038')+';--q:'+(p.colors?.[1]||'#d4a461')+'"></div><button class="heart '+(wishlist.some(x=>String(x)===String(p.id))?'active':'')+'" data-wish="'+p.id+'">'+(wishlist.some(x=>String(x)===String(p.id))?'♥':'♡')+'</button>'+(p.tag?'<span class="tag">'+p.tag+'</span>':'')+'</div><div class="product-meta"><div><div class="product-name">'+p
