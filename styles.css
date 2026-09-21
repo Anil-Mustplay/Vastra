@@ -96,3 +96,8 @@ button.disabled,.quick-add.disabled{cursor:not-allowed;opacity:.55}.stock-label{
 #app{padding-top:0}
 .product-page{padding-top:70px!important}
 @media(max-width:800px){.announcement{height:32px}.site-header{top:32px}.product-page{padding-top:30px!important}}
+/* Final no-overlay header flow */
+.announcement,.site-header{position:relative!important;top:auto!important;left:auto!important;right:auto!important;z-index:10}
+#app{padding-top:0!important}
+.product-page{padding-top:70px!important}
+@media(max-width:760px){.product-page{padding-top:30px!important}}
