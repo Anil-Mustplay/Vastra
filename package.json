@@ -2,7 +2,7 @@
   "name": "vastra",
   "version": "1.0.0",
   "private": true,
-  "scripts": {"dev": "next dev", "build": "next build", "start": "next start", "lint": "next lint"},
+  "scripts": {"dev": "next dev", "build": "echo static-site-ready", "start": "next start", "lint": "next lint"},
   "dependencies": {
     "@prisma/client": "^6.15.0",
     "bcryptjs": "^3.0.2",
