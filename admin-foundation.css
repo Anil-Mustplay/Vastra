@@ -1,0 +1,20 @@
+:root{--admin-ink:#241821;--admin-muted:#756873;--admin-wine:#681c32;--admin-gold:#b7833d;--admin-line:#eadfe0;--admin-surface:#fffdfb}
+.admin-shell{min-height:100vh;background:#f7f3f0;display:grid;grid-template-columns:248px minmax(0,1fr);color:var(--admin-ink)}
+.admin-side{background:linear-gradient(180deg,#24151c,#34141f);color:#fff8f0;padding:28px 16px;display:flex;flex-direction:column;gap:7px;position:sticky;top:0;height:100vh;box-sizing:border-box}
+.admin-side .brand{color:#f6dfb2!important;font-family:Georgia,serif;font-size:27px;letter-spacing:.18em;text-decoration:none;margin:0 10px 3px}
+.admin-side .eyebrow{color:#c9954b;margin:0 10px 18px;font-size:10px;letter-spacing:.18em}
+.admin-nav,.admin-side>a:not(.brand){border:0;background:transparent;color:#f7eced;text-align:left;padding:11px 12px;border-radius:9px;font:500 13px Arial;cursor:pointer;text-decoration:none}
+.admin-nav:hover,.admin-nav.active{background:#8a2744;color:#fff}
+.admin-side>a:not(.brand){margin-top:auto;border-top:1px solid #6b3948;padding-top:18px}
+.admin-main{min-width:0;padding:28px 34px}
+.admin-top{display:flex;align-items:center;justify-content:space-between;gap:20px;background:var(--admin-surface);border:1px solid var(--admin-line);border-radius:14px;padding:20px 24px;margin-bottom:20px;box-shadow:0 5px 20px #3e15200a}
+.admin-top:before{content:'VASTRA ADMIN';font-size:11px;letter-spacing:.18em;color:var(--admin-gold);position:absolute;top:22px;right:40px}
+.admin-top h1{margin:4px 0 0;font-family:Georgia,serif;font-size:30px;font-weight:500}
+.admin-top .eyebrow{margin:0;color:var(--admin-muted);font-size:10px;letter-spacing:.18em}
+.admin-panel,.metric{background:var(--admin-surface)!important;border:1px solid var(--admin-line)!important;border-radius:12px!important;box-shadow:0 5px 20px #3e15200a}
+.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.metric{padding:20px}.metric span{color:var(--admin-muted);font-size:12px}.metric strong{display:block;margin-top:10px;color:var(--admin-wine);font-family:Georgia,serif;font-size:28px}
+.admin-panel{padding:22px!important}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px}.panel-head h2,.admin-panel h2{font-family:Georgia,serif;font-weight:500}
+.admin-panel table{width:100%;border-collapse:collapse}.admin-panel th{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--admin-muted);text-align:left;padding:12px 10px;border-bottom:1px solid var(--admin-line)}.admin-panel td{padding:14px 10px;border-bottom:1px solid #f0e8e7;font-size:13px}
+.admin-panel input,.admin-panel select,.admin-panel textarea{border:1px solid #d9c9cc;border-radius:7px;background:#fff;padding:11px 12px;font:inherit}.admin-panel label{display:grid;gap:7px;margin-bottom:14px;font-size:12px;font-weight:600}.edit-form{max-width:760px}.btn{border:0;border-radius:7px;padding:11px 16px;cursor:pointer}.btn-dark{background:var(--admin-wine);color:#fff}.image-slot-grid{display:flex;flex-wrap:wrap;gap:12px}
+@media(max-width:800px){.admin-shell{display:block}.admin-side{position:fixed;z-index:20;left:-270px;width:248px;transition:left .2s}.admin-side.is-open{left:0}.admin-main{padding:16px}.admin-top{padding:18px}.admin-top:before{display:none}.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.panel-head{align-items:flex-start;flex-direction:column;}.admin-panel{overflow:auto}.admin-panel table{min-width:640px}}
