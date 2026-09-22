@@ -99,3 +99,9 @@ function productListForOverride(){return productDrawer(null)}
 /* Persist image URLs explicitly on every product save. */
 document.addEventListener('submit',async e=>{const f=e.target;if(f?.id!=='productForm'||f.dataset.imageSaveHandled)return;e.preventDefault();e.stopImmediatePropagation();f.dataset.imageSaveHandled='1';const data=Object.fromEntries(new FormData(f));['price','mrp','stock'].forEach(k=>data[k]=Number(data[k]||0));try{data.image_url=f.elements.image_url?.value||'';data.image_urls=JSON.parse(f.elements.image_urls?.value||'[]');const sku=data.sku.trim();const editing=f.elements.sku.readOnly;await get(editing?'products?sku=eq.'+encodeURIComponent(sku):'products',{method:editing?'PATCH':'POST',body:JSON.stringify(data)});document.querySelector('#msg').textContent=' Saved successfully';setTimeout(products,600)}catch(err){document.querySelector('#msg').textContent=' Save failed: '+err.message}finally{setTimeout(()=>{f.dataset.imageSaveHandled='';},0)}},true);
 </script>
+
+<script>
+/* Ensure the STEP 04 products workspace is selected after auth hydration and navigation. */
+window.addEventListener('load',()=>{setTimeout(()=>{if(location.hash==='#products'&&typeof productDrawer==='function')productDrawer(null)},900)});
+document.addEventListener('click',e=>{const b=e.target.closest('.admin-nav[data-view="products"]');if(b&&typeof productDrawer==='function')setTimeout(()=>productDrawer(null),0)});
+</script>
