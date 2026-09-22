@@ -57,6 +57,11 @@ function route(v){document.querySelectorAll('.admin-nav').forEach(x=>x.classList
 /* Force products workspace for products hash */
 (()=>{const force=()=>{if(location.hash!=='#products')return;const target=document.querySelector('#adminViewContent');if(!target)return;try{if(typeof productDrawer==='function')productDrawer(null)}catch(e){console.warn('products workspace',e)}};window.addEventListener('load',()=>setTimeout(force,1200));setTimeout(force,3000)})();
 </script>
+
+<script>
+/* Force route after auth */
+(()=>{const force=()=>{if(location.hash==='#products'&&typeof route==='function'){try{route('products')}catch(e){console.error('products route',e)}}};window.addEventListener('load',()=>setTimeout(force,2500));setTimeout(force,5000)})();
+</script>
 </body></html>
 </script><script>
 document.addEventListener('click',e=>{const b=e.target.closest('.image-remove');if(b)b.textContent='×'});
